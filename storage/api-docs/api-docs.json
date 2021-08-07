@@ -1,0 +1,192 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "AutoPix API",
+        "description": "AutoPix API Functions",
+        "contact": {
+            "email": "nahoosh.rakhe@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://localhost/autopix/public/api/",
+            "description": "AutoPix API"
+        }
+    ],
+    "paths": {
+        "/listArticles": {
+            "get": {
+                "tags": [
+                    "Articles Functions"
+                ],
+                "description": "List articles.",
+                "operationId": "listArticles",
+                "responses": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "flag": true,
+                                    "data": "Your data",
+                                    "message": "Message",
+                                    "code": "200"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/viewArticle": {
+            "post": {
+                "tags": [
+                    "Articles Functions"
+                ],
+                "description": "View article.",
+                "operationId": "viewArticle",
+                "requestBody": {
+                    "request": "body",
+                    "description": "Article ID",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {},
+                            "example": {
+                                "id": "1"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "flag": true,
+                                    "data": "Your data",
+                                    "message": "Message",
+                                    "code": "200"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/viewArticleForUser": {
+            "post": {
+                "tags": [
+                    "Articles Functions"
+                ],
+                "description": "View article For User.",
+                "operationId": "viewArticleForUser",
+                "requestBody": {
+                    "request": "body",
+                    "description": "Article ID",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {},
+                            "example": {
+                                "user_id": "1"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "flag": true,
+                                    "data": "Your data",
+                                    "message": "Message",
+                                    "code": "200"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/saveArticle": {
+            "post": {
+                "tags": [
+                    "Articles Functions"
+                ],
+                "description": "Save article.",
+                "operationId": "saveArticle",
+                "requestBody": {
+                    "request": "body",
+                    "description": "Article ID",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {},
+                            "example": {
+                                "id": "1",
+                                "title": "Article Title",
+                                "tags": "new,sample",
+                                "description": "Article description..."
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "flag": true,
+                                    "data": "Your data",
+                                    "message": "Message",
+                                    "code": "200"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "api_key": {
+                "type": "apiKey",
+                "description": "A short description for security scheme",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    }
+}
